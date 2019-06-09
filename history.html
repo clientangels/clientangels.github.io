@@ -264,208 +264,21 @@ includeHTML();
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <strong>Building Form</strong> 
+                <strong>History</strong> 
               </div>
               <div class="card-body card-block">
-                <div class="form1alpha">
-                <form action="http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/BuildingId" method="post" enctype="multipart/form-data" class="form-horizontal">
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Fill In As Much As You Can</label></div>
-                    <div class="col-12 col-md-9">
-                      <p class="form-control-static">Some Fields are manotry</p>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Text Input</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="form-text text-muted">This is a help text</small></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Email Input</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control" dcvalue=""><small class="help-block form-text">Please enter your email</small></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
-                    <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="help-block form-text">Please enter a complex password</small></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Disabled Input</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="disabled-input" name="disabled-input" placeholder="Disabled" disabled="" class="form-control" dcvalue=""></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Textarea</label></div>
-                    <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="select" class=" form-control-label">Select</label></div>
-                    <div class="col-12 col-md-9">
-                      <select name="select" id="select" class="form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Select Large</label></div>
-                    <div class="col-12 col-md-9">
-                      <select name="selectLg" id="selectLg" class="form-control-lg form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Select Small</label></div>
-                    <div class="col-12 col-md-9">
-                      <select name="selectSm" id="SelectLm" class="form-control-sm form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                        <option value="4">Option #4</option>
-                        <option value="5">Option #5</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="disabledSelect" class=" form-control-label">Disabled Select</label></div>
-                    <div class="col-12 col-md-9">
-                      <select name="disabledSelect" id="disabledSelect" disabled="" class="form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="multiple-select" class=" form-control-label">Multiple select</label></div>
-                    <div class="col col-md-9">
-                      <select name="multiple-select" id="multiple-select" multiple="" class="form-control">
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                        <option value="4">Option #4</option>
-                        <option value="5">Option #5</option>
-                        <option value="6">Option #6</option>
-                        <option value="7">Option #7</option>
-                        <option value="8">Option #8</option>
-                        <option value="9">Option #9</option>
-                        <option value="10">Option #10</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Radios</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check">
-                        <div class="radio">
-                          <label for="radio1" class="form-check-label ">
-                            <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input" dcvalue="option1">Option 1
-                          </label>
-                        </div>
-                        <div class="radio">
-                          <label for="radio2" class="form-check-label ">
-                            <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input" dcvalue="option2">Option 2
-                          </label>
-                        </div>
-                        <div class="radio">
-                          <label for="radio3" class="form-check-label ">
-                            <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input" dcvalue="option3">Option 3
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Inline Radios</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check-inline form-check">
-                        <label for="inline-radio1" class="form-check-label ">
-                          <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input" dcvalue="option1">One
-                        </label>
-                        <label for="inline-radio2" class="form-check-label ">
-                          <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" dcvalue="option2">Two
-                        </label>
-                        <label for="inline-radio3" class="form-check-label ">
-                          <input type="radio" id="inline-radio3" name="inline-radios" value="option3" class="form-check-input" dcvalue="option3">Three
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Checkboxes</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <label for="checkbox1" class="form-check-label ">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input" dcvalue="option1">Option 1
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="checkbox2" class="form-check-label ">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" value="option2" class="form-check-input" dcvalue="option2"> Option 2
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="checkbox3" class="form-check-label ">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" value="option3" class="form-check-input" dcvalue="option3"> Option 3
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Inline Checkboxes</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check-inline form-check">
-                        <label for="inline-checkbox1" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" class="form-check-input" dcvalue="option1">One
-                        </label>
-                        <label for="inline-checkbox2" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="option2" class="form-check-input" dcvalue="option2">Two
-                        </label>
-                        <label for="inline-checkbox3" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox3" name="inline-checkbox3" value="option3" class="form-check-input" dcvalue="option3">Three
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" dcvalue=""></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Multiple File input</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file" dcvalue=""></div>
-                  </div>
-                
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
-                  <i class="fa fa-dot-circle-o"></i> Submit
-                </button>
-                <button type="reset" class="btn btn-danger btn-sm">
-                  <i class="fa fa-ban"></i> Reset
-                </button>
-              </div>
-            </div>
-          
-          </form></div>
+               
+                    <span id="item"></span>
             <script>
               let request = new XMLHttpRequest();
-              request.open('GET', 'http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/BuildingId', true);
+              request.open('GET', 'http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/system/historian', true);
                 request.onload = function () {
                 // Convert JSON data to an object
                 let item = JSON.parse(this.response);
                 let output = '';
                 for (
                   var i = 0; i < item.length; i++) {
-                  output += '<div class="col-sm-6 col-lg-3"><div class="card text-white bg-flat-color-4"><div class="card-body pb-0"><div class="dropdown float-right"><button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"><i class="fa fa-cog"></i></button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><div class="dropdown-menu-content"><a class="dropdown-item" href="#">Update</a><a class="dropdown-item" href="#">Delete</a><a class="dropdown-item" href="#">Find Out More</a></div></div></div><h4 class="mb-0"><span class="">'+ item[i].BuildingUId +'</span></h4><p class="text-light">Members online</p><div class="chart-wrapper px-3" style="height:70px;" height="70">Test<br>What</div></div></div></div>'; 
-               
+                  output += '<div class="col-sm-12"><div class="alert  alert-success alert-dismissible fade show" role="alert"><span class="badge badge-pill badge-success">Success</span> '+ item[i].transactionId +' '+ item[i].transactionType +'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
                
                 }
                 document.getElementById('item').innerHTML = output;
