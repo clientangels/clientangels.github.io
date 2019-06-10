@@ -1,7 +1,9 @@
 <?php
 
 $curl = curl_init();
-
+$id = $_GET['id'];
+$weed = $_GET['id2'];
+$weed3 = $_GET['id3'];
 $class = '$class';
 curl_setopt_array($curl, array(
   CURLOPT_PORT => "3000",
@@ -12,7 +14,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\r\n    \"$class\": \"org.acme.building.BuildingInception\",\r\n    \"BuildingUId\": \"1msasss2.\",\r\n    \"building\": {\r\n      \"$class\": \"org.acme.building.Building\",\r\n      \"instrumentId\": [\r\n        \"Aliqua in consequat.\"\r\n      ],\r\n      \"exchangeId\": [\r\n        \"Duis eiusmod.\"\r\n      ],\r\n      \"AddressCO\": [],\r\n      \"maturity\": \"2019-06-09T01:57:11.506Z\",\r\n      \"client\": \"resource:org.acme.building.Client#9858\",\r\n      \"Assistant\": \"resource:org.acme.building.Assistant#4907\"\r\n    }\r\n   }",
+  CURLOPT_POSTFIELDS => "{\r\n    \"$class\": \"org.acme.building.BuildingInception\",\r\n    \"BuildingUId\": \"$id\",\r\n    \"building\": {\r\n      \"$class\": \"org.acme.building.Building\",\r\n      \"instrumentId\": [\r\n        \"Aliqua in consequat.\"\r\n      ],\r\n      \"exchangeId\": [\r\n        \"Duis eiusmod.\"\r\n      ],\r\n      \"AddressCO\": [],\r\n      \"maturity\": \"2019-06-09T01:57:11.506Z\",\r\n      \"client\": \"resource:org.acme.building.Client#$weed\",\r\n      \"Assistant\": \"resource:org.acme.building.Assistant#$weed3\"\r\n    }\r\n   }",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json",
     "cache-control: no-cache",

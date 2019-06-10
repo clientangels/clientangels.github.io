@@ -278,8 +278,21 @@ includeHTML();
                 let output = '';
                 for (
                   var i = 0; i < item.length; i++) {
-                  output += '<div class="col-sm-12"><div class="alert  alert-success alert-dismissible fade show" role="alert"><span class="badge badge-pill badge-success">Success</span> '+ item[i].transactionId +'<br /> '+ item[i].transactionType +'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
-               
+
+         
+                    if (item[i].transactionType == 'org.acme.building.BuildingInception') {
+                     var slass = 'alert-warning';    
+                    var slass1 = 'warning';
+                    var slass2 = 'Inception';
+                   } 
+                   
+                   else {
+                    var slass = 'alert-success';
+                    var slass1 = 'success';
+                    var slass2 = 'Success';
+                    }
+                    output += '<div class="col-sm-12"><div class="alert '+ slass +' alert-dismissible fade show" role="alert"><span class="badge badge-pill badge-'+ slass1 +'">'+ slass2 +'</span> '+ item[i].transactionId +'<br /> '+ item[i].transactionType +'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
+                  
                 }
                 document.getElementById('item').innerHTML = output;
               }
