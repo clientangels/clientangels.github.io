@@ -60,6 +60,8 @@ function includeHTML() {
   }
 };
 </script>
+
+
 <script>
 var itens = null;
 $.getJSON("http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/Assistant", function(data) {
@@ -100,132 +102,28 @@ includeHTML();
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
+      <!-- Header-->
+               <div w3-include-html="header.html"></div>
 
-        <!-- Header-->
-        <header id="header" class="header">
+               
+                  
+                   
+                        
+                        
+                        
 
-            <div class="header-menu">
+                        
+                       
+                        <script>
+                            includeHTML();
+                            </script>
+                        
+                    
+             
+              
+            
 
-                <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
-                        <div class="dropdown for-notification">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-bell"></i>
-                            <span class="count bg-danger">5</span>
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="notification">
-                            <p class="red">You have 3 Notification</p>
-                            <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <i class="fa fa-check"></i>
-                                <p>Server #1 overloaded.</p>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <i class="fa fa-info"></i>
-                                <p>Server #2 overloaded.</p>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <i class="fa fa-warning"></i>
-                                <p>Server #3 overloaded.</p>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="dropdown for-message">
-                          <button class="btn btn-secondary dropdown-toggle" type="button"
-                                id="message"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="ti-email"></i>
-                            <span class="count bg-primary">9</span>
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="message">
-                            <p class="red">You have 4 Mails</p>
-                            <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Jonathan Smith</span>
-                                    <span class="time float-right">Just now</span>
-                                        <p>Hello, this is an example msg</p>
-                                </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Jack Sanders</span>
-                                    <span class="time float-right">5 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Cheryl Wheeler</span>
-                                    <span class="time float-right">10 minutes ago</span>
-                                        <p>Hello, this is an example msg</p>
-                                </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-3" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                                <span class="message media-body">
-                                    <span class="name float-left">Rachel Santos</span>
-                                    <span class="time float-right">15 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </span>
-                            </a>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-
-                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </header><!-- /header -->
+      <!-- /header -->
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -282,27 +180,23 @@ includeHTML();
                     </div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Text Input</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="form-text text-muted">This is a help text</small></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Building Id</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Building Id" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="form-text text-muted">This is a help text</small></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Email Input</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control" dcvalue=""><small class="help-block form-text">Please enter your email</small></div>
+                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Building Address</label></div>
+                    <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Address" class="form-control" dcvalue=""><small class="help-block form-text">Please enter your email</small></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
+                    <div class="col col-md-3"><label for="password-input" class=" form-control-label">Building Co-Ordinates</label></div>
                     <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="help-block form-text">Please enter a complex password</small></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Disabled Input</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="disabled-input" name="disabled-input" placeholder="Disabled" disabled="" class="form-control" dcvalue=""></div>
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Textarea</label></div>
                     <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="select" class=" form-control-label">Select</label></div>
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Building Type</label></div>
                     <div class="col-12 col-md-9">
                       <select name="select" id="select" class="form-control">
                         <option value="0">Please select</option>
@@ -323,18 +217,7 @@ includeHTML();
                       </select>
                     </div>
                   </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Select Small</label></div>
-                    <div class="col-12 col-md-9">
-                      <select name="selectSm" id="SelectLm" class="form-control-sm form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
-                        <option value="4">Option #4</option>
-                        <option value="5">Option #5</option>
-                      </select>
-                    </div>
+                  
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="disabledSelect" class=" form-control-label">Disabled Select</label></div>
@@ -364,100 +247,28 @@ includeHTML();
                       </select>
                     </div>
                   </div>
+                  
                   <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Radios</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check">
-                        <div class="radio">
-                          <label for="radio1" class="form-check-label ">
-                            <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input" dcvalue="option1">Option 1
-                          </label>
-                        </div>
-                        <div class="radio">
-                          <label for="radio2" class="form-check-label ">
-                            <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input" dcvalue="option2">Option 2
-                          </label>
-                        </div>
-                        <div class="radio">
-                          <label for="radio3" class="form-check-label ">
-                            <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input" dcvalue="option3">Option 3
-                          </label>
-                        </div>
-                      </div>
+                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
+                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" dcvalue=""></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Multiple File input</label></div>
+                      <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file" dcvalue=""></div>
                     </div>
                   </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Inline Radios</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check-inline form-check">
-                        <label for="inline-radio1" class="form-check-label ">
-                          <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input" dcvalue="option1">One
-                        </label>
-                        <label for="inline-radio2" class="form-check-label ">
-                          <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input" dcvalue="option2">Two
-                        </label>
-                        <label for="inline-radio3" class="form-check-label ">
-                          <input type="radio" id="inline-radio3" name="inline-radios" value="option3" class="form-check-input" dcvalue="option3">Three
-                        </label>
-                      </div>
+                  </div>
+                 
+                  <div class="card-footer">
+                      <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                      </button>
+                      <button type="reset" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Reset
+                      </button>
                     </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Checkboxes</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <label for="checkbox1" class="form-check-label ">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input" dcvalue="option1">Option 1
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="checkbox2" class="form-check-label ">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" value="option2" class="form-check-input" dcvalue="option2"> Option 2
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="checkbox3" class="form-check-label ">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" value="option3" class="form-check-input" dcvalue="option3"> Option 3
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Inline Checkboxes</label></div>
-                    <div class="col col-md-9">
-                      <div class="form-check-inline form-check">
-                        <label for="inline-checkbox1" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" class="form-check-input" dcvalue="option1">One
-                        </label>
-                        <label for="inline-checkbox2" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="option2" class="form-check-input" dcvalue="option2">Two
-                        </label>
-                        <label for="inline-checkbox3" class="form-check-label ">
-                          <input type="checkbox" id="inline-checkbox3" name="inline-checkbox3" value="option3" class="form-check-input" dcvalue="option3">Three
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" dcvalue=""></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Multiple File input</label></div>
-                    <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file" dcvalue=""></div>
-                  </div>
-                
               </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-sm">
-                  <i class="fa fa-dot-circle-o"></i> Submit
-                </button>
-                <button type="reset" class="btn btn-danger btn-sm">
-                  <i class="fa fa-ban"></i> Reset
-                </button>
-              </div>
+             
             </div>
           
           </form></div>
