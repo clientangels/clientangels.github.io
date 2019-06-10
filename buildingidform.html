@@ -14,7 +14,7 @@
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    <link rel="stylesheet" href="assets/css/dude.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -270,9 +270,15 @@ includeHTML();
                 <div class="form1alpha">
                 <form action="http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/BuildingId" method="post" enctype="multipart/form-data" class="form-horizontal">
                   <div class="row form-group">
-                    <div class="col col-md-3"><label class=" form-control-label">Fill In As Much As You Can</label></div>
+                   
+                    <div class="col col-md-3">
+                        
+                      
+                      <label class=" form-control-label">Fill In As Much As You Can</label></div>
                     <div class="col-12 col-md-9">
-                      <p class="form-control-static">Some Fields are manotry</p>
+                      <p class="form-control-static"><ul id="form-messages">
+                          <li>Generic Message</li>
+                        </ul></p>
                     </div>
                   </div>
                   <div class="row form-group">
