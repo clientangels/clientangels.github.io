@@ -78,8 +78,7 @@
 
             const requestData = `username=${form.username.value}&password=${form.password.value}`;
 
-            request.open('post', 'check-login.php');
-            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            request.open('get', 'dude.php');
             request.send(requestData);
         });
 

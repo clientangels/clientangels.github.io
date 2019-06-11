@@ -202,7 +202,7 @@ include1HTML();
               </div>
               <div class="card-body card-block">
                 <div class="form1alpha">
-                <form action="http://ec2-18-130-176-221.eu-west-2.compute.amazonaws.com:3000/api/BuildingId" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form action="dude.php?" method="get" enctype="multipart/form-data" class="form-horizontal">
                   <div class="row form-group">
                    
                     <div class="col col-md-3">
@@ -221,12 +221,12 @@ include1HTML();
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="email-input" class=" form-control-label">Building Address</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Address" class="form-control" dcvalue=""><small class="help-block form-text">Please enter your email</small></div>
+                    <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Address" class="form-control" dcvalue=""><small class="help-block form-text">Please enter the building address</small></div>
                   </div>
-                  <div class="row form-group">
+                 <!-- <div class="row form-group">
                     <div class="col col-md-3"><label for="password-input" class=" form-control-label">Building Co-Ordinates</label></div>
                     <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control" dcvalue="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;"><small class="help-block form-text">Please enter a complex password</small></div>
-                  </div>
+                  </div>-->
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Textarea</label></div>
                     <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
@@ -243,26 +243,26 @@ include1HTML();
                     </div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Select Large</label></div>
+                    <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Select Client</label></div>
                     <div class="col-12 col-md-9">
                       <select name="selectLg" id="selectLg" class="form-control-lg form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
+                        <option value="1000">Please select</option>
+                        <option value="0001">Option #1</option>
+                        <option value="0002">Option #2</option>
+                        <option value="0003">Option #3</option>
                       </select>
                     </div>
                   </div>
                   
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="disabledSelect" class=" form-control-label">Disabled Select</label></div>
+                    <div class="col col-md-3"><label for="disabledSelect" class=" form-control-label">Sales Man</label></div>
                     <div class="col-12 col-md-9">
                       <select name="disabledSelect" id="disabledSelect" disabled="" class="form-control">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
+                        <option value="1000">Dagnam Dave</option>
+                        <option value="0001">Option #1</option>
+                        <option value="0002">Option #2</option>
+                        <option value="0003">Option #3</option>
                       </select>
                     </div>
                   </div>
@@ -294,7 +294,27 @@ include1HTML();
                     </div>-->
                   </div>
                   </div>
-                 
+                  <button type="button" onclick="loadDoc()">Request data</button>
+
+                  <p>Click the button several times to see if the time changes, or if the file is cached.</p>
+                  
+                  <p id="demo"></p>
+                  
+                  <script>
+                  function loadDoc() {
+                    var n=document.getElementById('textarea-input').value;
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange=function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                      }
+                    };
+                    xhttp.open("GET", "dude.php?id=" + Math.random() + "&id2=23&id3=" +  document.getElementById("textarea-input").value + "&id4="  +  document.getElementById("select").value , true);
+                    xhttp.send();
+                  }
+                  </script>
+                  
+                  
                   <div class="card-footer">
                       <button type="submit" class="btn btn-primary btn-sm">
                         <i class="fa fa-dot-circle-o"></i> Submit
@@ -302,6 +322,10 @@ include1HTML();
                       <button type="reset" class="btn btn-danger btn-sm">
                         <i class="fa fa-ban"></i> Reset
                       </button>
+
+
+
+
                     </div>
               </div>
              
