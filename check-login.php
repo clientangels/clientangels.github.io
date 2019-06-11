@@ -17,10 +17,15 @@
     }
 
     if ($ok) {
-        if ($username === 'dcode' && $password === 'dcode') {
+        
+        if ($username === 'admin' && $password === 'admin') {
             $ok = true;
             $messages[] = 'Successful login!';
-        } else {
+            $cookie_name = "user";
+$cookie_value = "admin";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        }  
+        else {
             $ok = false;
             $messages[] = 'Incorrect username/password combination!';
         }

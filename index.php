@@ -39,7 +39,71 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form>
+                <div class="form">
+        <ul id="form-messages"></ul>
+        <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" spellcheck="false">
+</div>
+<div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password">
+</div>
+        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" id="btn-submit">Login</button>
+    </div>
+    <script>
+        const form = {
+            username: document.getElementById('username'),
+            password: document.getElementById('password'),
+            submit: document.getElementById('btn-submit'),
+            messages: document.getElementById('form-messages')
+        };
+
+        form.submit.addEventListener('click', () => {
+            const request = new XMLHttpRequest();
+
+            request.onload = () => {
+                let responseObject = null;
+
+                try {
+                    responseObject = JSON.parse(request.responseText);
+                } catch (e) {
+                    console.error('Could not parse JSON!');
+                }
+
+                if (responseObject) {
+                    handleResponse(responseObject);
+                }
+            };
+
+            const requestData = `username=${form.username.value}&password=${form.password.value}`;
+
+            request.open('post', 'check-login.php');
+            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            request.send(requestData);
+        });
+
+        function handleResponse (responseObject) {
+            if (responseObject.ok) {
+                location.href = 'dashboard.php';
+            } else {
+                while (form.messages.firstChild) {
+                    form.messages.removeChild(form.messages.firstChild);
+                }
+
+                responseObject.messages.forEach((message) => {
+                    const li = document.createElement('li');
+                    li.textContent = message;
+                    form.messages.appendChild(li);
+                });
+
+                form.messages.style.display = "block";
+            }
+        }
+    </script>
+
+
+                 <!--   <form>
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" class="form-control" placeholder="Email">
@@ -60,9 +124,9 @@
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
                         
                         <div class="register-link m-t-15 text-center">
-                         <!--   <p>Don't have account ? <a href="#"> Sign Up Here</a></p> -->
+                           <p>Don't have account ? <a href="#"> Sign Up Here</a></p> 
                         </div>
-                    </form>
+                    </form>-->
                 </div>
             </div>
         </div>
