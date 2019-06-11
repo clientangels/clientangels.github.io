@@ -6,6 +6,63 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <script>
+	function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+	 function include1HTML() {
+          var z, i, elmnt, dude, dude2, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+			var user = getCookie("user");
+  if (user == "admin") {
+	file = elmnt.getAttribute("w3-include-html2");
+           }else {
+   
+    file = elmnt.getAttribute("w3-include-html1");
+			
+			
+  }
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                 if (user == "admin") {
+	file = elmnt.removeAttribute("w3-include-html2");
+           }else {
+   
+    file = elmnt.removeAttribute("w3-include-html1");
+			
+			
+  }
+                  include1HTML();
+                }
+              }      
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        };
         function includeHTML() {
           var z, i, elmnt, file, xhttp;
           /*loop through a collection of all HTML elements:*/
@@ -35,7 +92,7 @@
         };
         </script>
          <div w3-include-html="head.html"></div> 
-
+<div w3-include-html="head1.html"></div>
          <script>
          includeHTML();
          </script>
@@ -63,10 +120,11 @@ console.log(itens);
         <nav class="navbar navbar-expand-sm navbar-default">
 
             
-            <div w3-include-html="menu.html"></div> 
+            <div w3-include-html1="menu.html"></div> 
+			<div w3-include-html2="menu1.html"></div>
 
 <script>
-includeHTML();
+include1HTML();
 </script>
 
             
@@ -79,7 +137,9 @@ includeHTML();
 
     <div id="right-panel" class="right-panel">
       <!-- Header-->
-               <div w3-include-html="header.html"></div>
+               <div w3-include-html2="header1.html"></div>
+
+               <div w3-include-html1="header.html"></div>
 
                
                   
@@ -91,7 +151,7 @@ includeHTML();
                         
                        
                         <script>
-                            includeHTML();
+                            include1HTML();
                             </script>
                         
                     
@@ -206,7 +266,7 @@ includeHTML();
                       </select>
                     </div>
                   </div>
-                  <div class="row form-group">
+                 <!-- <div class="row form-group">
                     <div class="col col-md-3"><label for="multiple-select" class=" form-control-label">Multiple select</label></div>
                     <div class="col col-md-9">
                       <select name="multiple-select" id="multiple-select" multiple="" class="form-control">
@@ -222,16 +282,16 @@ includeHTML();
                         <option value="10">Option #10</option>
                       </select>
                     </div>
-                  </div>
+                  </div>-->
                   
-                  <div class="row form-group">
+              <!--    <div class="row form-group">
                       <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
                       <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" dcvalue=""></div>
-                    </div>
-                    <div class="row form-group">
+                    </div>-->
+               <!--     <div class="row form-group">
                       <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Multiple File input</label></div>
                       <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file" dcvalue=""></div>
-                    </div>
+                    </div>-->
                   </div>
                   </div>
                  
