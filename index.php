@@ -1,4 +1,97 @@
-<!doctype html>
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: welcome.php");
+    exit;
+}
+ 
+// Include config file
+require_once "config.php";
+ 
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if username is empty
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = trim($_POST["username"]);
+    }
+    
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+    
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            
+            // Set parameters
+            $param_username = $username;
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Store result
+                mysqli_stmt_store_result($stmt);
+                
+                // Check if username exists, if yes then verify password
+                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                    // Bind result variables
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    if(mysqli_stmt_fetch($stmt)){
+                        if(password_verify($password, $hashed_password)){
+                            // Password is correct, so start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;     
+                            $cookie_name = "user";
+$cookie_value = $username;
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day                       
+                            
+                            // Redirect user to welcome page
+                            header("location: dashboard.php");
+                        } else{
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+        
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+    
+    // Close connection
+    mysqli_close($link);
+}
+?>
+ 
+ <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -28,7 +121,8 @@
 
 </head>
 <body class="bg-dark">
-
+    
+    
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -41,112 +135,34 @@
                 <div class="login-form">
                 <div class="form">
         <ul id="form-messages"></ul>
-        <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" spellcheck="false">
-</div>
-<div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" type="password" id="password">
-</div>
-        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" id="btn-submit">Login</button>
-    </div>
-    <script>
-        const form = {
-            username: document.getElementById('username'),
-            password: document.getElementById('password'),
-            submit: document.getElementById('btn-submit'),
-            messages: document.getElementById('form-messages')
-        };
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        </form>
+       
 
-        form.submit.addEventListener('click', () => {
-            const request = new XMLHttpRequest();
-
-            request.onload = () => {
-                let responseObject = null;
-
-                try {
-                    responseObject = JSON.parse(request.responseText);
-                } catch (e) {
-                    console.error('Could not parse JSON!');
-                }
-
-                if (responseObject) {
-                    handleResponse(responseObject);
-                }
-            };
-
-            const requestData = `username=${form.username.value}&password=${form.password.value}`;
-
-            request.open('post', 'check-login.php');
-            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            request.send(requestData);
-        });
-
-        function handleResponse (responseObject) {
-            if (responseObject.ok) {
-                location.href = 'dashboard.php';
-            } else {
-                while (form.messages.firstChild) {
-                    form.messages.removeChild(form.messages.firstChild);
-                }
-
-                responseObject.messages.forEach((message) => {
-                    const li = document.createElement('li');
-                    li.textContent = message;
-                    form.messages.appendChild(li);
-                });
-
-                form.messages.style.display = "block";
-            }
-        }
-    </script>
+    
 
 
-                 <!--   <form>
-                        <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
-                            <label class="pull-right">
-                                <a href="#">Forgotten Password?</a>
-                            </label>
-
-                        </div>
-                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
-                        
-                        <div class="register-link m-t-15 text-center">
-                           <p>Don't have account ? <a href="#"> Sign Up Here</a></p> 
-                        </div>
-                    </form>-->
+               
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js" type="31a0f2be6383ea6913fa845d-text/javascript"></script>
-    <script src="assets/js/popper.min.js" type="31a0f2be6383ea6913fa845d-text/javascript"></script>
-    <script src="assets/js/plugins.js" type="31a0f2be6383ea6913fa845d-text/javascript"></script>
-    <script src="assets/js/main.js" type="31a0f2be6383ea6913fa845d-text/javascript"></script>
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="31a0f2be6383ea6913fa845d-text/javascript"></script>
-<script type="31a0f2be6383ea6913fa845d-text/javascript">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="31a0f2be6383ea6913fa845d-|49" defer=""></script></body>
+</body>
 </html>
