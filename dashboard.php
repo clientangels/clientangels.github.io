@@ -142,8 +142,8 @@ includeHTML();
                 let output = '';
                 for (
                   var i = 0; i < item.length; i++) {
-                  output += '<div class="col-sm-6 col-lg-3"><div class="card text-white bg-flat-color-4"><div class="card-body pb-0"><div class="dropdown float-right"><button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"><i class="fa fa-cog"></i></button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><div class="dropdown-menu-content"><a class="dropdown-item" href="#">Update</a><a class="dropdown-item" href="#">Delete</a><a class="dropdown-item" href="#">Find Out More</a></div></div></div><h4 class="mb-0"><span class="">'+ item[i].BuildingUId +'</span></h4><p class="text-light">Members online</p><div class="chart-wrapper px-3" style="height:70px;" height="70">Test<br>What</div></div></div></div>'; 
-               
+                  output += '<div class="col-sm-6 col-lg-3"><div class="card text-white bg-flat-color-4"><div class="card-body pb-0"><div class="dropdown float-right"><button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"><i class="fa fa-cog"></i></button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><div class="dropdown-menu-content"><a class="dropdown-item" href="#">Update</a><a class="dropdown-item" href="#">Delete</a><a class="dropdown-item" href="#">Find Out More</a></div></div></div><h4 class="mb-0"><span class="">'+ item[i].BuildingUId +'</span></h4><p class="text-light">'+ item[i].building.client +'</p><div class="chart-wrapper px-3" style="height:70px;" height="70">Test<br>What</div></div></div></div>'; 
+              // console.log(item[i].building.BuildingType);
                
                 }
                 document.getElementById('item').innerHTML = output;
